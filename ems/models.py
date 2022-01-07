@@ -23,7 +23,7 @@ class Review(models.Model):
     # owner =
     project = models.ForeignKey(Ems, on_delete=models.CASCADE)
     body = models.TextField(null=True, blank=True)
-    value = models.CharField(max_length=150, null=True, blank=True)
+    value = models.CharField(max_length=150, choices= VOTE_TYPE)
     created = models.DateTimeField(auto_now_add=True)
     id = models.AutoField(primary_key=True)
 
