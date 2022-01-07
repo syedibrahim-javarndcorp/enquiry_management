@@ -3,4 +3,12 @@
 
 {% block content %}
 <h1>Student EMS System</h1>
+<hr>
+<hr>
+{{ems.name}}
+{% for tag in tags %}
+    {{tag}}<br>
+
+{% endfor %}
+<hr>
 {% endblock content %}
