@@ -17,4 +17,4 @@ def single_tag(request, pk):
         "ems": ems,
         'tags': tags
     }
-    return render(request, 'ems/index.html',context)
+    return render(request, 'ems/profile_details.html', context)

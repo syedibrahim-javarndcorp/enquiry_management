@@ -1,14 +1,13 @@
-
 {% extends 'main.html' %}
 
 {% block content %}
 <h1>Student EMS System</h1>
 <hr>
 <hr>
-{% for em in ems %}
-<h2> Name : {{em.name}}</h2>
-<br>
-<h3>Title : {{em.title}}</h3>
+{{ems.name}}
+{% for tag in tags %}
+{{tag}}<br>
+
 {% endfor %}
 <hr>
 {% endblock content %}
