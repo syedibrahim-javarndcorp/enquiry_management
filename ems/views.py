@@ -48,3 +48,15 @@ def update_enquiry(request, pk):
         'form': form
     }
     return render(request, 'ems/add-update.html', context)
+
+
+def delete_enquiry(request, pk):
+    enquiry = Ems.objects.get(id=pk)
+    if request.method == "POST":
+        enquiry.delete()
+        return redirect('index')
+
+    context = {
+        'enquiry': enquiry
+    }
+    return render(request, 'ems/delete.html', context)

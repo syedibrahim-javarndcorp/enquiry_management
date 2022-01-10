@@ -2,6 +2,10 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<div class="add-project">
+    <a href="{% url 'create-enquiry' %}">Add Enquiry</a>
+</div>
+
 <h1>Student EMS System</h1>
 <hr>
 {% for em in ems %}
@@ -10,6 +14,8 @@
 <h3>Title : {{em.title}}</h3>
 <br>
 <a href="{% url 'update-enquiry' em.id %}">Update </a>
+<a href="{% url 'delete-enquiry' em.id %}">Delete </a>
+
 {% endfor %}
 <hr>
 {% endblock content %}

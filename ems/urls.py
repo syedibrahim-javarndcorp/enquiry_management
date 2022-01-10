@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('ems/<str:pk>/', views.single_tag, name='enquiry'),
     path('add-enquiry/', views.create_enquiry, name='create-enquiry'),
-    path('update-enquiry/<str:pk>',views.update_enquiry, name='update-enquiry'),
+    path('update-enquiry/<str:pk>', views.update_enquiry, name='update-enquiry'),
+    path('delete-enquiry/<str:pk>', views.delete_enquiry, name='delete-enquiry'),
 ]
