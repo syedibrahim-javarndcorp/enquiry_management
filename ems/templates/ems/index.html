@@ -13,6 +13,7 @@
 <br>
 <h3>Title : {{em.title}}</h3>
 <br>
+<h4>Enquired by {{em.owner.name}}</h4>
 <a href="{% url 'update-enquiry' em.id %}">Update </a>
 <a href="{% url 'delete-enquiry' em.id %}">Delete </a>
 

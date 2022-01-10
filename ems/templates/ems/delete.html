@@ -5,7 +5,7 @@
 <form method="POST" >
     {% csrf_token %}
 
-    <p>Are you sure you want to delete "{{enquiry}}"</p>
+    <p>Are you sure you want to delete <strong>"{{enquiry}}"</strong></p>
     <button><a href="{% url 'index' %}">Back</a></button>
     <input type="submit" value="Confirm">
 </form>

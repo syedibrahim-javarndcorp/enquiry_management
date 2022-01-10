@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ems.apps.EmsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
