@@ -1,6 +1,10 @@
 {% extends 'main.html' %}
 
 {%block content %}
-<h1>user profile</h1>
+{% for profile in profiles %}
 
+<h3>Name: {{profile.name}}</h3>
+<h4>Created on {{profile.created}}</h4>
+<a href="{% url 'user-profile' profile.id %}">View User Profile</a>
+{% endfor %}
 {% endblock content %}
