@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Ems
 from .forms import EmsForm
 
@@ -11,6 +12,7 @@ def index(request):
     return render(request, 'ems/index.html', context)
 
 
+@login_required(login_url='login')
 def single_tag(request, pk):
     ems = Ems.objects.get(id=pk)
     tags = ems.tag.all()
@@ -21,6 +23,7 @@ def single_tag(request, pk):
     return render(request, 'ems/profile_details.html', context)
 
 
+@login_required(login_url='login')
 def create_enquiry(request):
     form = EmsForm()
 
@@ -34,6 +37,7 @@ def create_enquiry(request):
     return render(request, 'ems/add-update.html', context)
 
 
+@login_required(login_url='login')
 def update_enquiry(request, pk):
     enquiry = Ems.objects.get(id=pk)
     form = EmsForm(instance=enquiry)
@@ -50,6 +54,7 @@ def update_enquiry(request, pk):
     return render(request, 'ems/add-update.html', context)
 
 
+@login_required(login_url='login')
 def delete_enquiry(request, pk):
     enquiry = Ems.objects.get(id=pk)
     if request.method == "POST":
