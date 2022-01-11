@@ -2,10 +2,16 @@
 {% block content %}
 
 <h1> EMS form  </h1>
+<div class="update-form">
 <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    {% for field in form %}
+    <label>{{field.label}}</label><br>
+    {{field}}
+    <br>
+    <br>
+    {% endfor %}
     <input type="submit" value="Submit">
 </form>
-
+</div>
 {% endblock content %}

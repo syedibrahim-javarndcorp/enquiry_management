@@ -1,13 +1,11 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h2> {{profile.name}} </h2>
-<h4> {{profile.email}}</h4>
-<h4> {{profile.username}}</h4>
-<h4> {{profile.user_type}}</h4>
-<h4> {{profile.created}}</h4>
-{% for data in profile.ems_set.all %}
-{{data.title}}<br>
-{{data.name}}
-{% endfor %}
+<h2> Name: {{profile.name}} </h2>
+<h4> Email: {{profile.email}}</h4>
+<h4> Username: {{profile.username}}</h4>
+<h4> Student/others: {{profile.user_type}}</h4>
+<h4> Created on: {{profile.created}}</h4>
+
+
 {% endblock content %}

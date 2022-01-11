@@ -9,10 +9,27 @@
     </form>
 </div>
 
-{% for profile in profiles %}
 
-<h3>Name: {{profile.name}}</h3>
-<h4>Created on {{profile.created}}</h4>
-<a href="{% url 'user-profile' profile.id %}">View User Profile</a>
-{% endfor %}
+<table border="1">
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Username</td>
+        <td>User Type</td>
+        <td colspan="2">operations </td>
+    </tr>
+    {% for profile in profiles %}
+    <tr>
+        <td> {{profile.name}}</td>
+        <td> {{profile.email}}</td>
+        <td> {{profile.username}}</td>
+        <td> {{profile.user_type}}</td>
+        <td><a href="{% url 'user-profile' profile.id %}">View User Profile</a></td>
+        <td> <a href="{% url 'edit-account' %}">Edit account</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
 {% endblock content %}

@@ -7,16 +7,29 @@
 </div>
 
 <h1>Student EMS System</h1>
-<hr>
-{% for em in ems %}
-<h2> Name : {{em.name}}</h2>
-<br>
-<h3>Title : {{em.title}}</h3>
-<br>
-<h4>Enquired by {{em.owner.name}}</h4>
-<a href="{% url 'update-enquiry' em.id %}">Update </a>
-<a href="{% url 'delete-enquiry' em.id %}">Delete </a>
+<table border="1" >
 
+    <tr >
+        <th>Name</th>
+        <th>Title</th>
+        <th>Enquiry</th>
+        <th>Student/ User</th>
+        <th>Enquired by</th>
+        <th colspan="2">operations</th>
+    </tr>
+    {% for em in ems %}
+    <tr>
+        <td>{{em.name}}</td>
+        <td>{{em.title}}</td>
+        <td>{{em.description}}</td>
+        <td>{{em.owner.user_type}}</td>
+        <td>{{em.owner.name}}</td>
+        <td><a href="{% url 'update-enquiry' em.id %}">Update Query</a></td>
+        <td><a href="{% url 'delete-enquiry' em.id %}">Delete Query</a></td>
 {% endfor %}
-<hr>
+    </tr>
+</table>
+
+
+
 {% endblock content %}

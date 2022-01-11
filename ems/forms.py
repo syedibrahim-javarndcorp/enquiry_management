@@ -7,6 +7,6 @@ class EmsForm(ModelForm):
         model = Ems
         fields = ['name', 'title', 'description', 'tag']
         labels = {
-            'description' : "Enquiry",
-            'tag' : 'Courses'
+            'description': "Enquiry",
+            'tag': 'Courses'
         }

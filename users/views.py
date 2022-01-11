@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .forms import CustomUserForm
+from .forms import CustomUserForm, ProfileForm
 from .models import Profile
 
 
@@ -49,7 +49,7 @@ def register_user(request):
             user.username = user.username.lower()
             user.save()
             login(request, user)
-            return redirect('index')
+            return redirect('edit-account')
 
     context = {'page': page,
                'form': form,
@@ -65,7 +65,7 @@ def profiles(request):
     profile = Profile.objects.filter(name__icontains=search_query)
     context = {
         'profiles': profile,
-        'search_query':search_query
+        'search_query': search_query
     }
     return render(request, 'users/profiles.html', context)
 
@@ -76,3 +76,16 @@ def user_profile(request, pk):
     context = {'profile': profile}
 
     return render(request, 'users/user-profiles.html', context)
+
+
+@login_required(login_url='login')
+def edit_account(request):
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+        return redirect('profiles')
+    context = {'form': form}
+    return render(request, 'users/profile-edit.html', context)
