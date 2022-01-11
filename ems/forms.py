@@ -6,3 +6,7 @@ class EmsForm(ModelForm):
     class Meta:
         model = Ems
         fields = ['name', 'title', 'description', 'tag']
+        labels = {
+            'description' : "Enquiry",
+            'tag' : 'Courses'
+        }
