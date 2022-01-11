@@ -1,6 +1,14 @@
 {% extends 'main.html' %}
 
 {%block content %}
+<div class="search">
+    <form action="{% url 'profiles' %}" method="get">
+        <label for="formusersearch" >Search Users</label>
+        <input type="text" name="search_query" value="{{search_query}}" id="formusersearch" placeholder="Search User">
+        <input type="submit" value="Search">
+    </form>
+</div>
+
 {% for profile in profiles %}
 
 <h3>Name: {{profile.name}}</h3>

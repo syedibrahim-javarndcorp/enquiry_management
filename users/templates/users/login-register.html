@@ -5,7 +5,14 @@
 
 <form action="{% url 'register' %}" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    {% for field in form %}
+    <label>{{field.label}}</label>
+    {{field}}
+    <br>
+    {% for error in field.errors %}
+    <small style="color : red;">{{error}}</small>
+    {% endfor %}
+    {% endfor %}
     <input type="submit" value="Register">
 </form>
 {% else %}
