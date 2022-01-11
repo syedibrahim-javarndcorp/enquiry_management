@@ -10,7 +10,8 @@ def get_routes(request):
     routes = [
         {'GET': '/api/enquiry'},
         {'GET': '/api/enquiry/id'},
-        {'POST': '/api/enquiry/id/vote'},
+        {'POST': '/api/token'},
+        {'POST': '/api/token/refresh'}
 
     ]
     return Response(routes)
