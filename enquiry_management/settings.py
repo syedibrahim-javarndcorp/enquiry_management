@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'ems.apps.EmsConfig',
     'users.apps.UsersConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
